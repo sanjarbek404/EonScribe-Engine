@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Georgia", serif;
+  --font-sans: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-adventure-bg: #0a0a0b;
+  --color-adventure-sidebar: #111114;
+  --color-adventure-card: #1a1a1e;
+  --color-adventure-accent: #d4af37;
+  --color-adventure-border: #2c2c30;
+  --color-adventure-text-dim: #8e8e93;
+}
+
+@layer base {
+  body {
+    @apply bg-adventure-bg text-[#e2e2e7] font-sans antialiased selection:bg-adventure-accent/30;
+  }
+
+  h1, h2, h3 {
+    @apply font-serif;
+  }
+}
+
+.scene-scanlines::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: repeating-linear-gradient(0deg, transparent 0px, rgba(0,0,0,0.1) 1px, transparent 2px);
+  pointer-events: none;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-adventure-border);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--color-adventure-accent);
+}
+
+
